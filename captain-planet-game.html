@@ -105,7 +105,7 @@
             <h4 class="card-header">Clone</h4>
             <div class="card-body">
               <div class="text-center">
-
+                <button class="btn btn-dark btn-lg clone">Clone</button>
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@
             <h4 class="card-header">Fire</h4>
             <div class="card-body">
               <div class="text-center">
-
+                <button class="btn btn-dark btn-lg fire">Fire</button>
               </div>
             </div>
           </div>
@@ -122,10 +122,10 @@
 
       <!-- Right Card (Captain Planet Hero)-->
       <div class="col-lg-6">
-
         <!-- Captain Planet Image -->
-        <img src="assets/captain-planet.jpg" alt="" class="img captain-planet"
-          style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px">
+        <!-- <img src="assets/captain-planet.jpg" alt="" class="img captain-planet"
+          style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px"> -->
+        <span class="cap-images"></span>
       </div>
     </div>
   </div>
@@ -134,7 +134,8 @@
 
     // JavaScript function that wraps everything
     $(document).ready(function () {
-
+      // var top 
+      $('.cap-images').html("<img src='assets/captain-planet.jpg' alt='' class='img captain-planet' style='position:absolute; top:50px; left: 80px; z-index: -20; height: 300px'>")
       var captainPlanet = $(".captain-planet");
 
       // Gets Link for Theme Song
@@ -143,7 +144,7 @@
 
       var audioElement2 = document.createElement("audio");
       audioElement2.setAttribute("src", "assets/laugh.mp3");
-      
+
       // Theme Button
       $(".theme-button").on("click", function () {
         audioElement1.play();
@@ -188,13 +189,17 @@
         captainPlanet.animate({ top: "50px", left: "80px" }, "fast");
       });
       $(".stretch").on("click", function () {
-        captainPlanet.animate({ width: "150%"});
+        captainPlanet.animate({ width: "150%" });
       });
       $(".go-back").on("click", function () {
-        captainPlanet.animate({ width: "100%"})
+        captainPlanet.animate({ width: "100%" })
       });
-      $(".laugh").on("click", function() {
+      $(".laugh").on("click", function () {
         audioElement2.play();
+      });
+      $(".clone").on("click", function () {
+        $(".cap-images").append("<img src='assets/captain-planet.jpg' alt='' class='img captain-planet' style='position:absolute; top:" + top + "; left:" + left + "80px; z-index: -20; height: 300px'>")
+
       });
       // Keyboard move controls
       $(document).keyup(function (e) {
