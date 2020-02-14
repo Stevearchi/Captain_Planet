@@ -81,7 +81,40 @@
             <br>
             <div class="text-center">
               <button class="btn btn-dark btn-lg back-button">
-                <span class="fa fa-comment"></span> Go Planet!</button>
+                Back</button>
+            </div>
+          </div>
+          <div id="stretch" class="card">
+            <h4 class="card-header">Stretch</h4>
+            <div class="card-body">
+              <div class="text-center">
+                <button class="btn btn-dark btn-lg stretch">Stretch</button>
+                <button class="btn btn-dark btn-lg go-back">Go back</button>
+              </div>
+            </div>
+          </div>
+          <div id="laugh" class="card">
+            <h4 class="card-header">Laugh</h4>
+            <div class="card-body">
+              <div class="text-center">
+                <button class="btn btn-dark btn-lg laugh">Laugh</button>
+              </div>
+            </div>
+          </div>
+          <div id="clone" class="card">
+            <h4 class="card-header">Clone</h4>
+            <div class="card-body">
+              <div class="text-center">
+
+              </div>
+            </div>
+          </div>
+          <div id="fire" class="card">
+            <h4 class="card-header">Fire</h4>
+            <div class="card-body">
+              <div class="text-center">
+
+              </div>
             </div>
           </div>
         </div>
@@ -91,97 +124,110 @@
       <div class="col-lg-6">
 
         <!-- Captain Planet Image -->
-        <img src="assets/captain-planet.jpg" alt="" class="img captain-planet" style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px">
+        <img src="assets/captain-planet.jpg" alt="" class="img captain-planet"
+          style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px">
       </div>
     </div>
   </div>
 
   <script>
 
-  // JavaScript function that wraps everything
-  $(document).ready(function() {
+    // JavaScript function that wraps everything
+    $(document).ready(function () {
 
-    var captainPlanet = $(".captain-planet");
+      var captainPlanet = $(".captain-planet");
 
-    // Gets Link for Theme Song
-    var audioElement = document.createElement("audio");
-    audioElement.setAttribute("src", "assets/captainplanet24.mp3");
+      // Gets Link for Theme Song
+      var audioElement1 = document.createElement("audio");
+      audioElement1.setAttribute("src", "assets/captainplanet24.mp3");
 
-    // Theme Button
-    $(".theme-button").on("click", function() {
-      audioElement.play();
-    });
-    $(".pause-button").on("click", function() {
-      audioElement.pause();
-    });
- 
-    // Size Buttons
-    $(".normal-button").on("click", function() {
-      captainPlanet.animate({ height: "300px" });
-    });
-    $(".grow-button").on("click", function() {
-      captainPlanet.animate({ height: "500px" });
-    });
-    $(".shrink-button").on("click", function() {
-      captainPlanet.animate({ height: "100px" });
-    });
+      var audioElement2 = document.createElement("audio");
+      audioElement2.setAttribute("src", "assets/laugh.mp3");
+      
+      // Theme Button
+      $(".theme-button").on("click", function () {
+        audioElement1.play();
+      });
+      $(".pause-button").on("click", function () {
+        audioElement1.pause();
+      });
 
-    // Visibility Buttons
-    $(".vis-button").on("click", function() {
-      captainPlanet.animate({ opacity: "1" });
-    });
-    $(".invis-button").on("click", function() {
-      captainPlanet.animate({ opacity: "0.05" });
-    });
+      // Size Buttons
+      $(".normal-button").on("click", function () {
+        captainPlanet.animate({ height: "300px" });
+      });
+      $(".grow-button").on("click", function () {
+        captainPlanet.animate({ height: "500px" });
+      });
+      $(".shrink-button").on("click", function () {
+        captainPlanet.animate({ height: "100px" });
+      });
 
-    // Move Buttons
-    $(".up-button").on("click", function() {
-      captainPlanet.animate({ top: "-=200px" }, "normal");
-    });
-    $(".down-button").on("click", function() {
-      captainPlanet.animate({ top: "+=200px" }, "normal");
-    });
-    $(".left-button").on("click", function() {
-      captainPlanet.animate({ left: "-=200px" }, "normal");
-    });
-    $(".right-button").on("click", function() {
-      captainPlanet.animate({ left: "+=200px" }, "normal");
-    });
-    $(".back-button").on("click", function() {
-      captainPlanet.animate({ top: "50px", left: "80px" }, "fast");
-    });
+      // Visibility Buttons
+      $(".vis-button").on("click", function () {
+        captainPlanet.animate({ opacity: "1" });
+      });
+      $(".invis-button").on("click", function () {
+        captainPlanet.animate({ opacity: "0.05" });
+      });
 
-    // Keyboard move controls
-    $(document).keyup(function(e) {
-      switch (e.which) {
-
-      // Move Buttons (Keyboard Down)
-      case 40:
-        captainPlanet.animate({ top: "+=200px" }, "normal");
-        break;
-
-        // Move Buttons (Keyboard Right)
-      case 39:
-        captainPlanet.animate({ left: "+=200px" }, "normal");
-        break;
-
-        // Move Buttons (Keyboard Up)
-      case 38:
+      // Move Buttons
+      $(".up-button").on("click", function () {
         captainPlanet.animate({ top: "-=200px" }, "normal");
-        break;
-
-        // Move Buttons (Keyboard Left)
-      case 37:
+      });
+      $(".down-button").on("click", function () {
+        captainPlanet.animate({ top: "+=200px" }, "normal");
+      });
+      $(".left-button").on("click", function () {
         captainPlanet.animate({ left: "-=200px" }, "normal");
-        break;
+      });
+      $(".right-button").on("click", function () {
+        captainPlanet.animate({ left: "+=200px" }, "normal");
+      });
+      $(".back-button").on("click", function () {
+        captainPlanet.animate({ top: "50px", left: "80px" }, "fast");
+      });
+      $(".stretch").on("click", function () {
+        captainPlanet.animate({ width: "150%"});
+      });
+      $(".go-back").on("click", function () {
+        captainPlanet.animate({ width: "100%"})
+      });
+      $(".laugh").on("click", function() {
+        audioElement2.play();
+      });
+      // Keyboard move controls
+      $(document).keyup(function (e) {
+        switch (e.which) {
 
-      default:
-        break;
-      }
+          // Move Buttons (Keyboard Down)
+          case 40:
+            captainPlanet.animate({ top: "+=200px" }, "normal");
+            break;
+
+          // Move Buttons (Keyboard Right)
+          case 39:
+            captainPlanet.animate({ left: "+=200px" }, "normal");
+            break;
+
+          // Move Buttons (Keyboard Up)
+          case 38:
+            captainPlanet.animate({ top: "-=200px" }, "normal");
+            break;
+
+          // Move Buttons (Keyboard Left)
+          case 37:
+            captainPlanet.animate({ left: "-=200px" }, "normal");
+            break;
+
+          default:
+            break;
+        }
+      });
     });
-  });
 
   </script>
 
 </body>
+
 </html>
