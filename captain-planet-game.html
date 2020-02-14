@@ -106,6 +106,7 @@
             <div class="card-body">
               <div class="text-center">
                 <button class="btn btn-dark btn-lg clone">Clone</button>
+                <button class="btn btn-dark btn-lg unclone">Kill Clone</button>
               </div>
             </div>
           </div>
@@ -114,6 +115,7 @@
             <div class="card-body">
               <div class="text-center">
                 <button class="btn btn-dark btn-lg fire">Fire</button>
+                <button class="btn btn-dark btn-lg extinguish">Extinguish</button>
               </div>
             </div>
           </div>
@@ -125,7 +127,8 @@
         <!-- Captain Planet Image -->
         <!-- <img src="assets/captain-planet.jpg" alt="" class="img captain-planet"
           style="position:absolute; top:50px; left: 80px; z-index: -20; height: 300px"> -->
-        <span class="cap-images"></span>
+        <span class="cap-images"></span> <!-- Cap images go here -->
+        <span id="fireImg"></span> <!-- flame goes here -->
       </div>
     </div>
   </div>
@@ -134,7 +137,6 @@
 
     // JavaScript function that wraps everything
     $(document).ready(function () {
-      // var top 
       $('.cap-images').html("<img src='assets/captain-planet.jpg' alt='' class='img captain-planet' style='position:absolute; top:50px; left: 80px; z-index: -20; height: 300px'>")
       var captainPlanet = $(".captain-planet");
 
@@ -144,6 +146,10 @@
 
       var audioElement2 = document.createElement("audio");
       audioElement2.setAttribute("src", "assets/laugh.mp3");
+
+      // Create img element for fire
+      var fireImg = $("<img>");
+      fireImg.attr("src", "assets/fire.png");
 
       // Theme Button
       $(".theme-button").on("click", function () {
@@ -188,18 +194,30 @@
       $(".back-button").on("click", function () {
         captainPlanet.animate({ top: "50px", left: "80px" }, "fast");
       });
+      //Stretch Buttons
       $(".stretch").on("click", function () {
         captainPlanet.animate({ width: "150%" });
       });
       $(".go-back").on("click", function () {
         captainPlanet.animate({ width: "100%" })
       });
+      // Laugh Button
       $(".laugh").on("click", function () {
         audioElement2.play();
       });
+      // Clone buttons
       $(".clone").on("click", function () {
-        $(".cap-images").append("<img src='assets/captain-planet.jpg' alt='' class='img captain-planet' style='position:absolute; top:" + top + "; left:" + left + "80px; z-index: -20; height: 300px'>")
-
+        $(".cap-images").append("<img src='assets/captain-planet.jpg' alt='' class='img captain-planet' style='position:absolute; z-index: -19; height: 300px'>")
+      });
+      $(".unclone").on("click", function () {
+        $('.cap-images').html("<img src='assets/captain-planet.jpg' alt='' class='img captain-planet' style='position:absolute; top:50px; left: 80px; z-index: -20; height: 300px'>")
+      });
+      // Flame buttons
+      $(".fire").on("click", function () {
+        $('#fireImg').html(fireImg);
+      });
+      $(".extinguish").on("click", function () {
+        $("#fireImg").empty();
       });
       // Keyboard move controls
       $(document).keyup(function (e) {
